@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+
 <p>Hello from article detail</p>
 <h1>{{ object.title }}</h1>
 <p>{{ object.body |safe }}</p>
+
+
+{% for i in img %}
+    <img src="{{ MEDIA_URL }}{{ i.img }}" alt="{{ i.name }}">
+{% endfor %}
+
+{% for v in vid %}
+    <video src="{{ MEDIA_URL}}{{ v.vid }}"></video>
+{% endfor %}
 
 {% endblock %}

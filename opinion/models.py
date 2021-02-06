@@ -32,7 +32,7 @@ class Article(models.Model):
 
 class Video(models.Model):
     article     =   models.ForeignKey(Article, on_delete=models.CASCADE)
-    vid         =   models.FileField()
+    vid         =   models.UUIDField()
     name        =   models.CharField(max_length=25)
 
     def __str__(self):
@@ -41,7 +41,7 @@ class Video(models.Model):
 
 class Image(models.Model):
     article     =   models.ForeignKey(Article, on_delete=models.CASCADE)
-    img         =   models.ImageField()
+    img         =   models.ImageField(upload_to='img/')
     name        =   models.CharField(max_length=25)
 
     def __str__(self):
