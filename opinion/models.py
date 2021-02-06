@@ -5,7 +5,7 @@ from django.contrib.postgres.fields import ArrayField
 class Author(models.Model):
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
-    email = models.CharField(max_length=255)
+    email = models.CharField(max_length=255, blank=True)
     site = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
