@@ -4,7 +4,7 @@
 <p>Hello from article list</p>
 
 {% for article in object_list %}
-    <p>Got one</p>
+    <p> <a href="{% url 'article' article.slug %}"> {{ article.title }} </a> </p>
 {% endfor %}
 
 {% endblock %}

@@ -1,11 +1,14 @@
 from django.contrib import admin
-from .models import Author, Article
+from .models import Author, Article, Image, Video
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ['img', 'title', 'body', 'author', 'date', 'slug']
+    fields = ['title', 'body', 'author', 'date', 'slug']
     prepopulated_fields = {'slug': ('title', )}
 
 
-admin.site.register(Author)
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Author)
+admin.site.register(Image)
+admin.site.register(Video)
+admin.site.register(ArticleSubHeading)
