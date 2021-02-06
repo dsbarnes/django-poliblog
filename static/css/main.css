@@ -1,4 +1,2 @@
-*{
-    box-sizing: border-box;
-    color: red;
-}
+*{ box-sizing: border-box; }
+/* This CSS applies to every page on the site */
