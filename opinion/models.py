@@ -15,7 +15,7 @@ class Author(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
     date = models.DateField()
     slug = models.SlugField(blank=False, null=False)
 
