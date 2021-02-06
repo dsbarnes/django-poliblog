@@ -16,6 +16,5 @@ class ArticleDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
-        context['img'] = Image.objects.all()
-        context['vid'] = Video.objects.all()
+        context['video'] = Video.objects.all()
         return context

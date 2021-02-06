@@ -4,17 +4,14 @@
 {% load static %}
 {% get_media_prefix as MEDIA_URL %}
 
+{% load embed_video_tags %}
+
 <p>Hello from article detail</p>
 <h1>{{ object.title }}</h1>
-<p>{{ object.body |safe }}</p>
+<p>{{ object.body|safe }}</p>
 
-
-{% for i in img %}
-    <img src="{{ MEDIA_URL }}{{ i.img }}" alt="{{ i.name }}">
-{% endfor %}
-
-{% for v in vid %}
-    <video src="{{ MEDIA_URL}}{{ v.vid }}"></video>
+{% for video_object in video %}
+    {% video video_object.embed_link 'small' %}
 {% endfor %}
 
 {% endblock %}

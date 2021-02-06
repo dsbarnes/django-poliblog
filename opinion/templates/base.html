@@ -11,19 +11,20 @@
 </head>
 
 <body>
-
     <nav>
-        <ul>
-            <li>home</li>
-            <li>about</li>
-            <li>contact</li>
-        </ul>
+        {% block header %}
+        {% endblock %}
     </nav>
 
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
 
 </body>
 

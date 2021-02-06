@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
-from django.contrib.postgres.fields import ArrayField
+from ckeditor.fields import RichTextField
+from embed_video.fields import EmbedVideoField
 
 class Author(models.Model):
     first_name  =   models.CharField(max_length=25)
@@ -14,7 +15,7 @@ class Author(models.Model):
 
 class Article(models.Model):
     title   =   models.CharField(max_length=255)
-    body    =   models.TextField()
+    body    =   RichTextField()
     author  =   models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
     date    =   models.DateField()
     slug    =   models.SlugField(blank=False, null=False)
@@ -32,7 +33,7 @@ class Article(models.Model):
 
 class Video(models.Model):
     article     =   models.ForeignKey(Article, on_delete=models.CASCADE)
-    vid         =   models.UUIDField()
+    embed_link  =   EmbedVideoField()
     name        =   models.CharField(max_length=25)
 
     def __str__(self):
@@ -41,18 +42,9 @@ class Video(models.Model):
 
 class Image(models.Model):
     article     =   models.ForeignKey(Article, on_delete=models.CASCADE)
-    img         =   models.ImageField(upload_to='img/')
+    img         =   models.ImageField(upload_to='img/', blank=True)
+    embed_link  =   models.URLField()
     name        =   models.CharField(max_length=25)
 
     def __str__(self):
         return self.name
-
-
-# This is one, probably poor idea
-# class ArticleSubHeading(models.Model):
-#     article   =   models.ForeignKey(Article, on_delete=models.CASCADE)
-#     text      =   models.CharField(max_length=25)
-#     name      =   models.CharField(max_length=25)
-
-#     def __str__(self):
-#         return self.name
