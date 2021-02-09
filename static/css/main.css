@@ -1,2 +1,2 @@
-*{ box-sizing: border-box; color: red;}
-/* This CSS applies to every page on the site */
+*{ box-sizing: border-box; color: red; }
+.flex{ display: flex; }
